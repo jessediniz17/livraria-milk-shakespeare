@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Compra realizada</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #e6ffe6; padding: 20px; }
+        .mensagem { background: white; padding: 20px; border-radius: 8px; box-shadow: 1px 1px 5px #ccc; text-align: center; }
+        a { display: inline-block; margin-top: 10px; text-decoration: none; color: white; background: #28a745; padding: 8px 15px; border-radius: 4px; }
+        a:hover { background: #218838; }
+    </style>
+</head>
+<body>
+    <div class="mensagem">
+        <h1>Compra realizada com sucesso!</h1>
+        <p>Você comprou o livro: <strong>{{ livro.titulo }}</strong></p>
+        <a href="{% url 'listar_livros' %}">Voltar à lista</a>
+    </div>
+</body>
+</html>

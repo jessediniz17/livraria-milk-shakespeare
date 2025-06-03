@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Carrinho de Compras</h2>
+
+    {% if livros %}
+        <table class="table table-bordered mt-3">
+            <thead class="table-dark">
+                <tr>
+                    <th>Título</th>
+                    <th>Preço</th>
+                    <th>Quantidade</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in livros %}
+                <tr>
+                    <td>{{ item.livro.titulo }}</td>
+                    <td>R$ {{ item.livro.preco }}</td>
+                    <td>{{ item.quantidade }}</td>
+                    <td>R$ {{ item.subtotal }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h4>Total: R$ {{ total }}</h4>
+
+        <form action="{% url 'finalizar_compra' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-success">Finalizar Compra</button>
+        </form>
+        
+    {% else %}
+        <p>Seu carrinho está vazio.</p>
+    {% endif %}
+</div>
+{% endblock %}

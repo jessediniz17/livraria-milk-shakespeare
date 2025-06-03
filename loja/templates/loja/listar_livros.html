@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">Lista de Livros</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Preço</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for livro in livros %}
+            <tr>
+                <td>{{ livro.titulo }}</td>
+                <td>{{ livro.autor }}</td>
+                <td>R$ {{ livro.preco }}</td>
+                <td>
+                    <form method="post" action="{% url 'adicionar_carrinho' livro.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-success btn-sm">Adicionar ao Carrinho</button>
+                    </form>
+                    <form action="{% url 'ver_carrinho' %}" method="get">
+    <button type="submit" class="btn btn-primary mb-3">🛒 Ver Carrinho</button>
+</form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

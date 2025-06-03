@@ -1,0 +1,14 @@
+{% extends 'loja/base.html' %}
+
+{% block title %}Adicionar Livro{% endblock %}
+
+{% block content %}
+<h2 class="mb-4">Cadastrar Novo Livro</h2>
+
+<form method="post" class="card p-4 shadow-sm">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a href="{% url 'listar_livros' %}" class="btn btn-secondary">Voltar</a>
+</form>
+{% endblock %}

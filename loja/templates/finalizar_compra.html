@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Compra Finalizada</title>
+</head>
+<body>
+    <h1>Compra Finalizada com sucesso!</h1>
+    <p>Sua nota fiscal foi gerada: <strong>{{ nome_arquivo }}</strong></p>
+    <p>Você pode encontrar o arquivo na pasta <code>notas_fiscais</code> do projeto.</p>
+    <a href="{% url 'lista_livros' %}">Voltar para a loja</a>
+</body>
+</html>
